@@ -209,27 +209,27 @@ var note;
 // save user notes to Local Storage
 // needs to be fixed because it saves only the tast user note
 
-// saveButton.addEventListener('click', function (event) {
-//     event.preventDefault();
+saveButton.addEventListener('click', function (event) {
+    event.preventDefault();
 
-//         if (userNoteInput.value) {
+        if (userNoteInput.value) {
 
-//             localStorage.setItem('userGardenNote', userNoteInput.value);
-//             note = document.createElement('li');
-//             note.textContent = localStorage.getItem('userGardenNote');
-//             console.log(note.textContent);
-//             userNotesOutput.appendChild(note);
-//             userNoteInput.value = "";
-//         };
-// });
+            localStorage.setItem('userGardenNote', userNoteInput.value);
+            note = document.createElement('li');
+            note.textContent = localStorage.getItem('userGardenNote');
+            console.log(note.textContent);
+            userNotesOutput.appendChild(note);
+            userNoteInput.value = "";
+        };
+});
 
 // display list of user notes by user reqeust if user click on View My Notes button
 //  needs to be fixed because it dispalies only the tast user note because Local Storage has only last note
 
-// viewNotesButton.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     note = document.createElement('li');
-//     note.textContent = localStorage.getItem('userGardenNote');
-//     console.log(note.textContent);
-//     userNotesOutput.appendChild(note);
-// });
+viewNotesButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    note = document.createElement('li');
+    note.textContent = localStorage.getItem('userGardenNote');
+    console.log(note.textContent);
+    userNotesOutput.appendChild(note);
+});

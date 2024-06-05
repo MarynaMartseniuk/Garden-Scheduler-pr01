@@ -21,136 +21,130 @@
         </nav>
     </header>
 
-    <main class="grid-container">
-        <div class="grid-x grid-margin-x">
-            <div class="cell small-12 medium-6" id="left">
-                <h2>Plant Details</h2>
-                <p><button class="button" data-open="plant-modal">Choose the Plant </button></p>
-                <div id="plant-info-main"></div>
-            </div>
+    <main>
+        <div class="grid-container">
 
-            <div class="cell small-12 medium-6" id="right">
-                <h2>Weather Forecast</h2>
+            <div class="grid-x grid-margin-x">
 
+                <div class="cell small-12 medium-6" id="left">
+                    <h2>Plant Details</h2>
+                    <p><button class="button" data-open="plant-modal">Choose the Plant </button></p>
+                    <div id="plant-info-main"></div>
+                </div>
 
+                <div class="cell small-12 medium-6" id="right">
+                    <h2>Weather Forecast</h2>
 
-                <!-- the source: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date-->
+                    <!-- the source: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date-->
 
-                <!-- the source: https://www.w3schools.com/tags/tag_form.asp. The <form> tag is used to create an HTML form for user input.-->
-                                 
+                    <!-- the source: https://www.w3schools.com/tags/tag_form.asp. The <form> tag is used to create an HTML form for user input.-->
+    
+                    <p>
+                        <button class="button" data-open="weather-modal">Choose the City</button>
+                    </p>
 
-                <p>
-                    <button class="button" data-open="weather-modal">Choose the City</button>
-                </p>
-
-                <div id="weatherRes">
-                    <h3>Results for the weather request:</h3>
-                    <div>
+                    <div id="weatherRes">
+                        <h3>Results for the weather request:</h3>
+                        <div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Code for Garden Modal-->
+
+                <div class="reveal" id="plant-modal" data-reveal>
+                    <h2>Plant Details</h2>
+                    <select id="plant-select" class="full-width"></select>
+                    <div id="plant-info" class="mt-2"></div>
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+
+                <!-- Code for Weather Modal -->
+
+                <div class="reveal" id="weather-modal" data-reveal>
+                    <h1>Weather Today</h1>
+                    <p class="lead">Choose your city</p>
+                
+                    <form id="cityName">
+                        <label for="cname">City name:</label><br>
+                        <input type="text" id="cname" name="cname"><br>
+                        <button id="cnsubmit">Submit City Name</button>
+                    </form>
+                    </p>
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                
+
             </div>
 
-            <!-- Code for Garden Modal-->
-            <div class="reveal" id="plant-modal" data-reveal>
-                <h2>Plant Details</h2>
-                <select id="plant-select" class="full-width"></select>
-                <div id="plant-info" class="mt-2"></div>
-                <button class="close-button" data-close aria-label="Close modal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+        </div> 
 
+        <!-- Code for Garden Modal-->
+        <!-- <p><a data-open="plant-modal"> data-open="settings-modal"Click Text</a></p> -->
 
-            <!-- Code for Weather Modal -->
+        <div class="reveal" id="plant-modal" data-reveal>
+            <h2>Plant Details</h2>
+            <select id="plant-select" class="full-width"></select>
+            <div id="plant-info" class="mt-2"></div>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
 
-            <div class="reveal" id="weather-modal" data-reveal>
-                <h1>Weather Today</h1>
-                <p class="lead">Choose your city</p>
-              
+        <!-- Code for Weather Modal -->
+
+        <div class="reveal" id="weather-modal" data-reveal>
+            <h2>Weather Today</h2>
+            <p class="lead">Choose your city</p>
+            <p>
+                <!--the source: https://www.w3schools.com/html/html_form_input_types.asp-->
                 <form id="cityName">
                     <label for="cname">City name:</label><br>
                     <input type="text" id="cname" name="cname"><br>
                     <button id="cnsubmit">Submit City Name</button>
                 </form>
-                </p>
-                <button class="close-button" data-close aria-label="Close modal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-            
-
-            <!-- js -->
-            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"
-                crossorigin="anonymous"></script>
-            <script src="Assets\javascript.js"></script>
-
-
-
-
-        </div>
-
-    </main> 
-
-    <!-- Code for Garden Modal-->
-    <!-- <p><a data-open="plant-modal"> data-open="settings-modal"Click Text</a></p> -->
-
-    <div class="reveal" id="plant-modal" data-reveal>
-        <h2>Plant Details</h2>
-        <select id="plant-select" class="full-width"></select>
-        <div id="plant-info" class="mt-2"></div>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
+            </p>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
             <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-
-    <!-- Code for Weather Modal -->
-
-    <div class="reveal" id="weather-modal" data-reveal>
-        <h2>Weather Today</h2>
-        <p class="lead">Choose your city</p>
-        <p>
-            <!--the source: https://www.w3schools.com/html/html_form_input_types.asp-->
-            <form id="cityName">
-                <label for="cname">City name:</label><br>
-                <input type="text" id="cname" name="cname"><br>
-                <button id="cnsubmit">Submit City Name</button>
-            </form>
-        </p>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-
-<!-- Code for Gardening Notes-->
-
-    <div>
-        <h2>My Gardening Notes</h2>
-            <!--intup for Gardening Notes-->
-            <!-- User comments are going into this form-->
-        <form id="gardenNotes">
-             <textarea name="user-comment" id="new-comment" placeholder="what plant, what to apply, when to apply and other useful stuff you need"></textarea>
-             <button id="saveBtn">Save Notes</button>
-
-             <p>
-                <button id="viewNotes" class="button" data-open="notes-modal">View My Notes</button>
-
-             </p>
-
-        </form>
-
-            <!--output for Gardening Notes-->
-            <!-- Code for Gardening Notes Modal -->
-        <div>
-            <h3>List of Notes:</h3>
-            <lu id="outputNotes"></lu>
+            </button>
         </div>
-    </div>
+
+    <!-- Code for Gardening Notes-->
+
+        <div>
+            <h2>My Gardening Notes</h2>
+                <!--intup for Gardening Notes-->
+                <!-- User comments are going into this form-->
+            <form id="gardenNotes">
+                <textarea name="user-comment" id="new-comment" placeholder="what plant, what to apply, when to apply and other useful stuff you need"></textarea>
+                <button id="saveBtn">Save Notes</button>
+
+                <p>
+                    <button id="viewNotes" class="button" data-open="notes-modal">View My Notes</button>
+
+                </p>
+
+            </form>
+
+                <!--output for Gardening Notes-->
+                <!-- Code for Gardening Notes Modal -->
+            <div>
+                <h3>List of Notes:</h3>
+                <lu id="outputNotes"></lu>
+            </div>
+        </div>
+
+    </main>
 
     <footer class="garden-footer">
         <div class="footer-container">
-            <p>This version is processed and chenged by Maryna Martseniuk</p>
+            <p>This version is processed and changed by Maryna Martseniuk</p>
             <p>Original idea of M5: Joe Sandoval, Maryna Martseniuk, Kai Burgess, Olivier Ndicunguye, Shobha Ganesh</p>
             <p>The Gardening Scheduler</p>
         </div>
@@ -159,10 +153,11 @@
 
 
     <!-- js -->
+ 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"
         crossorigin="anonymous"></script>
-
+    <script src="Assets\javascript.js"></script>
    
 
 </body>
