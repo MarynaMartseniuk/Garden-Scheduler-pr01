@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Great Gardening App!</title>
+    <title>Easy Gardening</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css"
         crossorigin="anonymous">
@@ -17,7 +17,7 @@
 
     <header>
         <nav>
-            <h3>Gardening Scheduler</h3>
+            <h3>Easy Gardening</h3>
         </nav>
     </header>
 
@@ -117,27 +117,32 @@
 
     <!-- Code for Gardening Notes-->
 
-        <div>
-            <h2>My Gardening Notes</h2>
+        <div class="gardenNotes">
+            <div class="noteInput">
+                <h3>My Gardening Notes</h3>
                 <!--intup for Gardening Notes-->
                 <!-- User comments are going into this form-->
-            <form id="gardenNotes">
-                <textarea name="user-comment" id="new-comment" placeholder="what plant, what to apply, when to apply and other useful stuff you need"></textarea>
-                <button id="saveBtn">Save Notes</button>
+                <form id="gardenNotes">
+                    <textarea name="user-comment" id="new-comment" placeholder="what plant, what to apply, when to apply and other useful stuff you need"></textarea>
+                    <button id="saveBtn">Save Notes</button>
 
-                <p>
-                    <button id="viewNotes" class="button" data-open="notes-modal">View My Notes</button>
 
-                </p>
 
-            </form>
+                </form>
+            </div>
+           
 
                 <!--output for Gardening Notes-->
                 <!-- Code for Gardening Notes Modal -->
-            <div>
+            <div class="noteOutput">
                 <h3>List of Notes:</h3>
                 <lu id="outputNotes"></lu>
+                <p class="viewNotes">
+                    <button id="viewNotesBtn" class="button" data-open="notes-modal">View My Notes</button>
+                </p>
             </div>
+
+           
         </div>
 
     </main>
@@ -145,8 +150,9 @@
     <footer class="garden-footer">
         <div class="footer-container">
             <p>This version is processed and changed by Maryna Martseniuk</p>
-            <p>Original idea of M5: Joe Sandoval, Maryna Martseniuk, Kai Burgess, Olivier Ndicunguye, Shobha Ganesh</p>
-            <p>The Gardening Scheduler</p>
+            <p> <span><a href="https://wol42verine.github.io/Project-1">Original Project</a>
+                </span>"Tha Gardening Schedule" of M5: Joe Sandoval, Maryna Martseniuk, Kai Burgess, Olivier Ndicunguye, Shobha Ganesh</p>
+            <p>Easy Gardening</p>
         </div>
     </footer> 
       

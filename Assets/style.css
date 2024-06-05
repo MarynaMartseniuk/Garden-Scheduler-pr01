@@ -5,7 +5,7 @@ body {
   }
   
   #wrap {
-  background-image: url(./images/background.jpg);
+  background-color: rgb(59, 92, 59);
   background-size: cover; 
   background-position: center; 
   background-repeat: repeat; 
@@ -15,7 +15,8 @@ body {
   
   footer, 
   header{
-  background-color: rgb(2, 62, 6);
+  background-image: url(./images/background.jpg);
+  /*background-color: rgb(2, 62, 6);*/
   height: 80px;
   width: 100%;
   }
@@ -28,20 +29,38 @@ body {
   margin-top: 80px;
   }
 
+
   #choosePlantBtn,
   #chooseCityBtn,
   #saveBtn,
-  #viewNotes {
+  #viewNotesBtn {
     padding: 10px;
     margin-bottom: 7px;
     border-radius: 3px;
-    background-color: rgb(23, 121, 186);
-    color: #9fa1ad;
+    background-color: rgb(241, 194, 91);
+    color: #532e0b;
     display: block;
   }
   
-  textarea {
+
+.gardenNotes{
+display: flex;
+width: 95%;
+border: solid;
+border-color: #394739;   
+border-radius: 10px; 
+background-color: rgb(117, 172, 117);
+color: #381c02;
+}  
+
+.noteInput,
+.noteOutput {
+    display: inline;
     width: 50%;
+}
+
+  textarea {
+    width: 90%;
     height: 150px;
     padding: 12px 20px;
     box-sizing: border-box;
@@ -50,6 +69,7 @@ body {
     background-color: #eef1ef;
     color: rgb(5, 54, 18);
     font-size: 16px;
+    font-weight: 600;
   }
 
 
