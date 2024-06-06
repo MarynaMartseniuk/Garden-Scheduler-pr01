@@ -72,7 +72,14 @@ color: #381c02;
     font-weight: 600;
   }
 
-
+#scheduler {
+width: 95%;
+border: solid;
+border-color: #394739;   
+border-radius: 10px; 
+background-color: rgb(117, 172, 117);
+color: #381c02;
+}
 
 footer {
     font-size: 10px;

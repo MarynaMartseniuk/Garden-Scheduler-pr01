@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Easy Gardening</title>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.11/dayjs.min.js" integrity="sha512-FwNWaxyfy2XlEINoSnZh1JQ5TRRtGow0D6XcmAWmYCRgvqOUTnzCxPc9uF35u5ZEpirk1uhlPVA19tflhvnW1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css"
         crossorigin="anonymous">
 
@@ -141,9 +143,35 @@
                     <button id="viewNotesBtn" class="button" data-open="notes-modal">View My Notes</button>
                 </p>
             </div>
-
-           
         </div>
+
+        <div id="scheduler">
+            <h3>Schedule a Plant-Stuff Application</h3>
+            <form>
+                <div id="plantStuffInfo" class="grid-x grid-padding-x">
+                  <div class="small-3 cell">
+                    <label for="1-label" class="text-right">Name of the plant</label>
+                  </div>
+                  <div class="small-9 cell">
+                    <input type="text" id="1-label" placeholder="put the name of a plant here">
+                  </div>
+
+                  <div class="small-3 cell">
+                    <label for="2-label" class="text-right">Name of the plant-stuff to applay</label>
+                  </div>
+                  <div class="small-9 cell">
+                    <input type="text" id="2-label" placeholder="put the name of a plant-stuff you going to applay here">
+                  </div>
+
+                  <div class="small-3 cell">
+                    <label for="dp1" class="text-right">Choose the first day of application</label>
+                  </div>
+                  <div class="small-9 cell">
+                     <input type="text" class="span2" id="dp1">
+
+                  <!-- </div> -->
+                </div>
+              </form>
 
     </main>
 
@@ -163,6 +191,22 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/js/foundation-datepicker.min.js"></script>
+
+    <script>
+        $(function(){
+            $('#dp1').fdatepicker({
+                initialDate: '01-01-2024',
+                format: 'mm-dd-yyyy',
+                disableDblClickSelection: true,
+                leftArrow:'<<',
+                rightArrow:'>>',
+                closeIcon:'X',
+                closeButton: true
+            });
+        });
+        </script>
+
     <script src="Assets\javascript.js"></script>
    
 

@@ -203,7 +203,7 @@ if (city !== null) {
 const saveButton = document.querySelector('#saveBtn');
 const userNoteInput = document.querySelector('#new-comment');
 const userNotesOutput = document.querySelector('#outputNotes');
-const viewNotesButton = document.querySelector('#viewNotes');
+const viewNotesButton = document.querySelector('#viewNotesBtn');
 var note;
 
 // save user notes to Local Storage
@@ -233,3 +233,4 @@ viewNotesButton.addEventListener('click', function (event) {
     console.log(note.textContent);
     userNotesOutput.appendChild(note);
 });
+
