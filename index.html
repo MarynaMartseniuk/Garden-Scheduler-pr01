@@ -144,32 +144,51 @@
                 </p>
             </div>
         </div>
-            
+
+
+                <!---->
         <div id="scheduler">
-            <h3>Schedule a Plant-Stuff Application</h3>
+            <h3>Schedule a Plant-Stuff Using</h3>
+            <!-- source https://get.foundation/sites/docs/forms.html -->
             <form>
                 <div id="plantStuffInfo" class="grid-x grid-padding-x">
                   <div class="small-3 cell">
                     <label for="1-label" class="text-right">Name of the plant</label>
                   </div>
                   <div class="small-9 cell">
-                    <input type="text" id="1-label" placeholder="put the name of a plant here">
+                    <input type="text" id="1-label" placeholder="for example: Tulip">
                   </div>
 
                   <div class="small-3 cell">
-                    <label for="2-label" class="text-right">Name of the plant-stuff to applay</label>
+                    <label for="2-label" class="text-right">Name of the plant-stuff to use</label>
                   </div>
                   <div class="small-9 cell">
-                    <input type="text" id="2-label" placeholder="put the name of a plant-stuff you going to applay here">
+                    <input type="text" id="2-label" placeholder="for example: Super Food by Healthy Plants Co">
                   </div>
 
                   <div class="small-3 cell">
                     <label for="dp1" class="text-right">Choose the first day of application</label>
                   </div>
                   <div class="small-9 cell">
+                    <!-- source https://foundation-datepicker.peterbeno.com/ -->
                      <input type="text" class="span2" id="dp1">
-
                   </div>
+
+                  <div class="small-3 cell">
+                    <label for="3-label" class="text-right">Number of days until next use</label>
+                  </div>
+                  <div class="small-9 cell">
+                    <input type="text" id="3-label" placeholder="for example: 12">
+                  </div>
+
+                  <div class="small-3 cell">
+                    <label for="3-label" class="text-right">Next Day to use your Plant-Stuff</label>
+                  </div>
+                  <div class="small-9 cell">
+                    <p>The Next Day to use your Plant-Stuff is (code for this day is coming here)</p>
+                  </div>
+
+
                 </div>
               </form>
 
@@ -193,7 +212,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/js/foundation-datepicker.min.js"></script>
 
-    <script>
+    <!-- <script>
         $(function(){
             $('#dp1').fdatepicker({
                 initialDate: '01-01-2024',
@@ -205,7 +224,7 @@
                 closeButton: true
             });
         });
-        </script>
+        </script> -->
 
     <script src="Assets\javascript.js"></script>
    

@@ -234,3 +234,14 @@ viewNotesButton.addEventListener('click', function (event) {
     userNotesOutput.appendChild(note);
 });
 
+//$(function(){
+    $('#dp1').fdatepicker({
+        initialDate: '01-01-2024',
+        format: 'mm-dd-yyyy',
+        disableDblClickSelection: true,
+        leftArrow:'<<',
+        rightArrow:'>>',
+        closeIcon:'X',
+        closeButton: true
+    });
+//});
