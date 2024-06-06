@@ -224,7 +224,7 @@ saveButton.addEventListener('click', function (event) {
 });
 
 // display list of user notes by user reqeust if user click on View My Notes button
-//  needs to be fixed because it dispalies only the tast user note because Local Storage has only last note
+//  needs to be fixed because it dispalies only the last user note because Local Storage has only last note
 
 viewNotesButton.addEventListener('click', function (event) {
     event.preventDefault();
@@ -234,9 +234,12 @@ viewNotesButton.addEventListener('click', function (event) {
     userNotesOutput.appendChild(note);
 });
 
-//$(function(){
+//code for the section "Schedule a Plant-Stuff Using"
+
+// function for "Choose the first day of application" section, a Foundation daypicker
+$(function(){
     $('#dp1').fdatepicker({
-        initialDate: '01-01-2024',
+        initialDate: '01-28-2024',
         format: 'mm-dd-yyyy',
         disableDblClickSelection: true,
         leftArrow:'<<',
@@ -244,4 +247,6 @@ viewNotesButton.addEventListener('click', function (event) {
         closeIcon:'X',
         closeButton: true
     });
-//});
+});
+
+
