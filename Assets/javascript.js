@@ -1,14 +1,17 @@
+// 1. Plant Details: Plant Modal, plant API and Local Storage / created by Joe Sandoval
+
 $(document).foundation();
 
 const apiUrl = 'https://perenual.com/api/species-list?key=sk-nV5Y664fa6394ed345548&page=1';
 
+    //Function to choose the plant display plant info on the page
 $(document).ready(function () {
-    // Event listener for modal button
+            // Event listener for modal button
     $('button[data-open="plant-modal"]').on('click', function () {
         fetchPlantData();
     });
 
-    // Event listener for plant selection
+            // Event listener for plant selection
     $('#plant-select').on('change', function () {
         const plantId = $(this).val();
         if (plantId) {
@@ -16,18 +19,18 @@ $(document).ready(function () {
         }
     });
 
-    // Event listener for dismiss button using event delegation
+            // Event listener for dismiss button using event delegation
     $(document).on('click', '.dismiss-button', function () {
         const plantId = $(this).closest('.plant-info').data('plant-id');
         removePlantData(plantId);
         $(this).closest('.plant-info').remove(); // Remove the closest parent with class 'plant-info'
     });
 
-    // Load plant data from localStorage when the page is loaded
+            // Load plant data from localStorage when the page is loaded
     loadSavedPlantData();
 });
 
-// Function to fetch plant data
+    // Function to fetch plant data
 function fetchPlantData() {
     fetch(apiUrl)
         .then(response => {
@@ -43,7 +46,7 @@ function fetchPlantData() {
         .catch(error => console.error('Error fetching plant data:', error));
 };
 
-// Function to populate the plant select dropdown
+    // Function to populate the plant select dropdown
 function populatePlantSelect(plants) {
     const select = $('#plant-select');
     select.empty(); // Clear existing options
@@ -53,7 +56,7 @@ function populatePlantSelect(plants) {
     });
 };
 
-// Function to fetch and display plant details
+    // Function to fetch and display plant details
 function fetchPlantDetails(plantId) {
     fetch(`https://perenual.com/api/species/details/${plantId}?key=sk-nV5Y664fa6394ed345548`)
         .then(response => response.json())
@@ -69,11 +72,11 @@ function fetchPlantDetails(plantId) {
         .catch(error => console.error('Error fetching plant details:', error));
 };
 
-// Function to save plant data in localStorage
+    // Function to save plant data in localStorage
 function savePlantData(plant) {
     let savedPlantData = localStorage.getItem('plantData');
 
-    // Ensure savedPlantData is a valid array
+            // Ensure savedPlantData is a valid array
     try {
         savedPlantData = JSON.parse(savedPlantData);
         if (!Array.isArray(savedPlantData)) {
@@ -83,18 +86,18 @@ function savePlantData(plant) {
         savedPlantData = [];
     }
 
-    // Add the new plant data
+            // Add the new plant data
     savedPlantData.push(plant);
 
-    // Save back to localStorage
+            // Save back to localStorage
     localStorage.setItem('plantData', JSON.stringify(savedPlantData));
 }
 
-// Function to remove plant data from localStorage
+    // Function to remove plant data from localStorage
 function removePlantData(plantId) {
     let savedPlantData = localStorage.getItem('plantData');
 
-    // Ensure savedPlantData is a valid array
+            // Ensure savedPlantData is a valid array
     try {
         savedPlantData = JSON.parse(savedPlantData);
         if (!Array.isArray(savedPlantData)) {
@@ -104,18 +107,18 @@ function removePlantData(plantId) {
         savedPlantData = [];
     }
 
-    // Filter out the plant to remove
+            // Filter out the plant to remove
     const updatedPlantData = savedPlantData.filter(plant => plant.id !== plantId);
 
-    // Save back to localStorage
+            // Save back to localStorage
     localStorage.setItem('plantData', JSON.stringify(updatedPlantData));
 }
 
-// Function to load plant data from localStorage
+    // Function to load plant data from localStorage
 function loadSavedPlantData() {
     let savedPlantData = localStorage.getItem('plantData');
 
-    // Ensure savedPlantData is a valid array
+            // Ensure savedPlantData is a valid array
     try {
         savedPlantData = JSON.parse(savedPlantData);
         if (Array.isArray(savedPlantData)) {
@@ -128,7 +131,7 @@ function loadSavedPlantData() {
     }
 }
 
-// Function to display plant information
+    // Function to display plant information
 function displayPlantInfo(plant) {
     const infoDiv = $('#plant-info-main');
     const plantInfo = `
@@ -146,7 +149,9 @@ function displayPlantInfo(plant) {
     infoDiv.append(plantInfo);
 }
 
-// Weather API
+
+
+// 2. Weather Forecast: Plant Modal, plant API and Local Storage / created by Maryna Martseniuk
 
 const APIKey = "6d91ac03912ea4111a6d0d3486084c05";
 const inputCity = document.querySelector('#cname');
@@ -155,20 +160,19 @@ const wRes = document.querySelector('#weatherRes');
 
 let city;
 
-// get location for the Weather request
+    // get location for the Weather request
 
 submitBtn.addEventListener('click', function () {
     city = inputCity.value;
     console.log(city);
 });
 
-// get info for API request URL
+    // get info for API request URL
 
 const urlParams = new URLSearchParams(window.location.search);
 city = urlParams.get('cname');
 
-// If city has a value then do request to API
-
+    // If city has a value then do request to API
 if (city !== null) {
     let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
 
@@ -176,7 +180,7 @@ if (city !== null) {
         .then(function (response) {
             return response.json();
         })
-        .then(function (data) {
+        .then(function (data) { // improved by Joe Sandoval
             console.log(data);
 
             const resCity = document.createElement('p');
@@ -198,55 +202,53 @@ if (city !== null) {
 }
 
 
-//My Gardening Notes with Local Storage
+//3. My Gardening Notes with Local Storage / created by Maryna Martseniuk
 
 const saveButton = document.querySelector('#saveBtn');
+const userNoteTitleInput = document.querySelector('#new-comment-title');
 const userNoteInput = document.querySelector('#new-comment');
 const userNotesOutput = document.querySelector('#outputNotes');
 const viewNotesButton = document.querySelector('#viewNotesBtn');
 var note;
 
-// save user notes to Local Storage
-// needs to be fixed because it saves only the tast user note
-
+    // save user notes to Local Storage
 saveButton.addEventListener('click', function (event) {
     event.preventDefault();
 
         if (userNoteInput.value) {
-
-            localStorage.setItem('userGardenNote', userNoteInput.value);
+            localStorage.setItem(userNoteTitleInput.value, userNoteInput.value);
             note = document.createElement('li');
-            note.textContent = localStorage.getItem('userGardenNote');
-            console.log(note.textContent);
+            note.textContent = localStorage.getItem(userNoteTitleInput.value);
             userNotesOutput.appendChild(note);
             userNoteInput.value = "";
+            userNoteTitleInput.value = "";
         };
 });
 
-// display list of user notes by user reqeust if user click on View My Notes button
-//  needs to be fixed because it dispalies only the last user note because Local Storage has only last note
-
+    // display list of user notes by user reqeust if user click on View My Notes button
 viewNotesButton.addEventListener('click', function (event) {
     event.preventDefault();
     note = document.createElement('li');
-    note.textContent = localStorage.getItem('userGardenNote');
+    note.textContent = localStorage.getItem(userNoteTitleInput.value);
     console.log(note.textContent);
     userNotesOutput.appendChild(note);
 });
 
-//code for the section "Schedule a Plant-Stuff Using"
+//4. Schedule a Plant-Stuff Using / created by Maryna Martseniuk
 
-// function for "Choose the first day of application" section, a Foundation daypicker
-$(function(){
-    $('#dp1').fdatepicker({
-        initialDate: '01-28-2024',
-        format: 'mm-dd-yyyy',
-        disableDblClickSelection: true,
-        leftArrow:'<<',
-        rightArrow:'>>',
-        closeIcon:'X',
-        closeButton: true
-    });
-});
+    // function for "Choose the first day of application" section, a Foundation daypicker
+    //let firstDay;
+    const plantName = document.querySelector('#label1');
+    const stuffName = document.querySelector('#label2');
+    let firstDayUse = document.querySelector('#dp1');
+    const dayBeforeUse = document.querySelector('#label3');
 
+    console.log(plantName.value);
+    console.log(stuffName.value);
+    console.log(firstDayUse.value);
+    console.log(dayBeforeUse.value);
+
+
+
+// save info to Local Storage source: https://www.youtube.com/watch?v=-ZRDZyUjEEI
 

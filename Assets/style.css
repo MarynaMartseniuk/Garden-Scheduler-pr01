@@ -1,3 +1,5 @@
+/*created by Shobha Ganesh, modifed by Olivier Ndicunguye, Maryna Martseniuk*/
+
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color:rgb(2, 58, 7);
@@ -59,7 +61,8 @@ color: #381c02;
     width: 50%;
 }
 
-  textarea {
+  #new-comment-title,
+  #new-comment {
     width: 90%;
     height: 150px;
     padding: 12px 20px;
@@ -70,6 +73,10 @@ color: #381c02;
     color: rgb(5, 54, 18);
     font-size: 16px;
     font-weight: 600;
+  }
+
+  #new-comment-title {
+    height: 50px;
   }
 
 #scheduler {
