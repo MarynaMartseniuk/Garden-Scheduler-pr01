@@ -17,14 +17,28 @@ body {
   }
   
   footer, 
-  header{
+  header {
   background-image: url(./images/background.jpg);
   /*background-color: rgb(2, 62, 6);*/
-  height: 80px;
+  height: 100px;
   width: 100%;
   }
   
+  header {
+   
+  color: #c5c9e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
   
+  #headerLinks {
+    background-color: #afb3ad;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+  }
+
   .grid-container{
   display: flex;
   justify-content: space-around;
@@ -33,19 +47,22 @@ body {
   }
 
 
-  #choosePlantBtn,
-  #chooseCityBtn,
-  #saveNotesBtn,
-  #viewNotesBtn, 
-  #getNextDayBtn {
+.button {
     padding: 10px;
     margin-bottom: 7px;
     border-radius: 3px;
     background-color: rgb(243, 210, 140);
     color: #532e0b;
     display: block;
+    transition: box-shadow 0.15s;
   }
   
+/* source https://www.youtube.com/watch?v=G3e-cpL7ofc&list=LL&index=19 */
+  .button:hover {
+    background-color: rgb(243, 210, 140);
+    color: #532e0b;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
 
 .gardenNotes{
 display: flex;
@@ -93,9 +110,13 @@ color: #381c02;
 
 footer {
   color: #c5c9e2;
-    font-size: 10px;
+  font-size: 10px;
 }
 
+#endTitle {
+  display: flex;
+  justify-content: center; 
+}
 
   @media screen and (max-width: 768px) {
     .grid-container{
