@@ -210,7 +210,7 @@ const saveNoteButton = document.querySelector('#saveNotesBtn');
 const userNoteTitleInput = document.querySelector('#new-comment-title');
 const userNoteInput = document.querySelector('#new-comment');
 
-var MyGardenNotesList = [];
+var MyGardenNotesList = JSON.parse(localStorage.getItem("myGardenNotes")) || [];
 var addNewNote = {};
 var tip ="";
 
@@ -296,7 +296,7 @@ viewNotesButton.addEventListener('click', function (event) {
 
     //output const-var declaretion
     const displayForm = document.querySelector('#label4');
-    var scheduleList = [];
+    var scheduleList = JSON.parse(localStorage.getItem("schedule")) || [];
     var scheduleNote;
 
     console.log(plantName.value);
