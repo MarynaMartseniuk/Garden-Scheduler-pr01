@@ -69,3 +69,5 @@ https://marynamartseniuk.github.io/Garden-Scheduler-pr01/
 ### License
 this repo has a MIT License.
 
+### Features
+This Web-App is still in a process of improvement and debugging. All current issues are listed in the Issiue section of repo.
