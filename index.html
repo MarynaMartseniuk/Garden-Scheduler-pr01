@@ -123,22 +123,21 @@
             <div class="noteInput">
                 <h3>My Gardening Notes</h3>
                 <!--intup for Gardening Notes-->
-                <!-- User comments are going into this form-->
-                <div id="gardenNotes">
+                <div id="gardenNotesForm">
                     <textarea name="user-comment-title" id="new-comment-title" placeholder="title of you note"></textarea>
                     <textarea name="user-comment" id="new-comment" placeholder="here is a notebook for any useful notes about your garden"></textarea>
-                    <button id="saveBtn">Save Notes</button>
-                </div>
+                    <p>
+                        <button type="button" id="saveNotesBtn" class="button">Save Notes</button>
+                    </p>
+                 </div>
             </div>
-           
-
+ 
                 <!--output for Gardening Notes-->
-                <!-- Code for Gardening Notes -->
             <div class="noteOutput">
                 <h3>List of Notes:</h3>
-                <lu id="outputNotes"></lu>
+                <div id="outputNotes"></div>
                 <p class="viewNotes">
-                    <button id="viewNotesBtn" class="button" data-open="notes-modal">View My Notes</button>
+                    <button id="viewNotesBtn" class="button">View My Notes</button>
                 </p>
             </div>
         </div>
@@ -148,8 +147,8 @@
         <div id="scheduler">
             <h3>Schedule a Plant-Stuff Using</h3>
             <!-- source https://get.foundation/sites/docs/forms.html -->
-            <form>
-                <div id="plantStuffInfo" class="grid-x grid-padding-x">
+            <div>
+                <div id="getPlantStuffInfo" class="grid-x grid-padding-x">
                   <div class="small-3 cell">
                     <label for="label1" class="text-right">Name of the plant</label>
                   </div>
@@ -172,30 +171,32 @@
                   </div>
 
                   <div class="small-3 cell">
-                    <label for="label3" class="text-right">Number of days until next use</label>
+                    <label for="label3" class="text-right">Number of days before next use</label>
                   </div>
                   <div class="small-9 cell">
                     <input type="text" id="label3" placeholder="for example: 12">
                   </div>
-
-                  <div class="small-3 cell">
-                    <label for="label4" class="text-right">Next Day to use your Plant-Stuff</label>
-                  </div>
-                  <div class="small-9 cell">
-                    <p>The Next Day to use (your Plant-Stuff name is going in here) is (code for this day is coming here)</p>
-                  </div>
-
-
                 </div>
-              </form>
+                
+                  <p>
+                    <button type="button" id="getNextDayBtn" class="button">get Next Day of use</button>
+                  </p>
+                
+                <div id="displayPlantStuffInfo" class="grid-x grid-padding-x">
+                  <div class="small-3 cell">
+                    <h6 for="label4" class="text-right">Next Day to use your Plant-Stuff:</h6>
+                  </div>
+                  <div id="label4" class="small-9 cell"></div>
+                </div>
+            </div>
 
     </main>
 
     <footer class="garden-footer">
         <div class="footer-container">
-            <p>This version is processed and changed by Maryna Martseniuk</p>
+            <p>This version is processed on and changed by Maryna Martseniuk</p>
             <p> <span><a href="https://wol42verine.github.io/Project-1">Original Project</a>
-                </span>"Tha Gardening Schedule" of M5: Joe Sandoval, Maryna Martseniuk, Kai Burgess, Olivier Ndicunguye, Shobha Ganesh</p>
+                </span>"The Gardening Schedule" of M5: Joe Sandoval, Maryna Martseniuk, Kai Burgess, Olivier Ndicunguye, Shobha Ganesh</p>
             <p>Easy Gardening</p>
         </div>
     </footer> 

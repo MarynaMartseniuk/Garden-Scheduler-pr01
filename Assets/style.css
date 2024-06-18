@@ -7,7 +7,8 @@ body {
   }
   
   #wrap {
-  background-color: rgb(59, 92, 59);
+  background-color: rgb(221, 223, 221);
+  color: black;
   background-size: cover; 
   background-position: center; 
   background-repeat: repeat; 
@@ -34,12 +35,13 @@ body {
 
   #choosePlantBtn,
   #chooseCityBtn,
-  #saveBtn,
-  #viewNotesBtn {
+  #saveNotesBtn,
+  #viewNotesBtn, 
+  #getNextDayBtn {
     padding: 10px;
     margin-bottom: 7px;
     border-radius: 3px;
-    background-color: rgb(241, 194, 91);
+    background-color: rgb(243, 210, 140);
     color: #532e0b;
     display: block;
   }
@@ -51,7 +53,7 @@ width: 95%;
 border: solid;
 border-color: #394739;   
 border-radius: 10px; 
-background-color: rgb(117, 172, 117);
+background-color: rgb(153, 197, 153);
 color: #381c02;
 }  
 
@@ -84,11 +86,13 @@ width: 95%;
 border: solid;
 border-color: #394739;   
 border-radius: 10px; 
-background-color: rgb(117, 172, 117);
+background-color: rgb(153, 197, 153);
 color: #381c02;
 }
 
+
 footer {
+  color: #c5c9e2;
     font-size: 10px;
 }
 
