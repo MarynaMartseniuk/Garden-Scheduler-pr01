@@ -204,51 +204,170 @@ if (city !== null) {
 
 //3. My Gardening Notes with Local Storage / created by Maryna Martseniuk
 
-const saveButton = document.querySelector('#saveBtn');
+//input const-var declaretion
+const gardenNoteForm = document.querySelector('#gardenNotesForm');
+const saveNoteButton = document.querySelector('#saveNotesBtn');
 const userNoteTitleInput = document.querySelector('#new-comment-title');
 const userNoteInput = document.querySelector('#new-comment');
+
+var MyGardenNotesList = [];
+var addNewNote = {};
+var tip ="";
+
+//output const-var declaretion
 const userNotesOutput = document.querySelector('#outputNotes');
 const viewNotesButton = document.querySelector('#viewNotesBtn');
-var note;
 
-    // save user notes to Local Storage
-saveButton.addEventListener('click', function (event) {
+var noteCard;
+var noteTitle;
+var note;
+var noteList = [];
+
+// console.log(MyGardenNotesList);
+// console.log(addNewNote);
+
+    //3.1. save user Gardening Notes to the Local Storage
+saveNoteButton.addEventListener('click', function (event) {
     event.preventDefault();
 
-        if (userNoteInput.value) {
-            localStorage.setItem(userNoteTitleInput.value, userNoteInput.value);
-            note = document.createElement('li');
-            note.textContent = localStorage.getItem(userNoteTitleInput.value);
-            userNotesOutput.appendChild(note);
+    // console.log(addNewNote);
+    // console.log(MyGardenNotesList);
+
+        if (userNoteInput.value && userNoteTitleInput.value) {
+
+            addNewNote =  {
+                title: userNoteTitleInput.value,
+                note: userNoteInput.value
+            };
+            console.log(MyGardenNotesList);
+            MyGardenNotesList.push(addNewNote);
+            // console.log(addNewNote);
+            // console.log(MyGardenNotesList);
+            
+            localStorage.setItem("myGardenNotes", JSON.stringify(MyGardenNotesList));
             userNoteInput.value = "";
             userNoteTitleInput.value = "";
+            tip.textContent = "";
+            } else {
+            tip = document.createElement('p');
+            tip.textContent = "!!! Please, fill Tilte and Note Content sections in !!!"
+            gardenNoteForm.appendChild(tip);
         };
 });
 
-    // display list of user notes by user reqeust if user click on View My Notes button
+    //3.2. display list of user notes by user reqeust if user click on View My Notes button
 viewNotesButton.addEventListener('click', function (event) {
     event.preventDefault();
-    note = document.createElement('li');
-    note.textContent = localStorage.getItem(userNoteTitleInput.value);
-    console.log(note.textContent);
-    userNotesOutput.appendChild(note);
+
+    noteList = JSON.parse(localStorage.getItem("myGardenNotes"));
+
+    for (let i = 0; i < noteList.length; i++) {
+
+        noteCard = document.createElement('div');
+        noteTitle = document.createElement('h4');
+        note = document.createElement('p');
+
+        noteTitle.textContent = "your note: " + noteList[i].title;
+        note.textContent = noteList[i].note;
+
+        noteCard.append(noteTitle, note);
+        userNotesOutput.appendChild(noteCard);
+
+    };
 });
 
 //4. Schedule a Plant-Stuff Using / created by Maryna Martseniuk
 
     // function for "Choose the first day of application" section, a Foundation daypicker
     //let firstDay;
+
+    //input const-var declaretion
     const plantName = document.querySelector('#label1');
     const stuffName = document.querySelector('#label2');
-    let firstDayUse = document.querySelector('#dp1');
-    const dayBeforeUse = document.querySelector('#label3');
+    const firstDayUse = document.querySelector('#dp1');
+    const daysBeforeNextUse = document.querySelector('#label3');
+    const getNextDayButton = document.querySelector('#getNextDayBtn');
+    const scheduleForm = document.querySelector('#getPlantStuffInfo');
+
+    var scheduleList = [];
+    var addNewPlantStuff = {};
+    var tip2 ="";
+    var tip3 ="";
+
+    //output const-var declaretion
+    const displayForm = document.querySelector('#label4');
+    var scheduleList = [];
+    var scheduleNote;
 
     console.log(plantName.value);
     console.log(stuffName.value);
     console.log(firstDayUse.value);
-    console.log(dayBeforeUse.value);
+    console.log(daysBeforeNextUse.value);
+
+    getNextDayButton.addEventListener('click', function (event) {
+        event.preventDefault();
+
+            //4.1. save Plant-Stuff Using info to the Local Storage
+    
+        if (plantName.value 
+                && stuffName.value
+                && firstDayUse.value
+                && daysBeforeNextUse.value) {
+
+                    // code for Next Day, use dayjs is going here
+                    // nextDay = firstday + daysBeforeNextuse;
+
+
+    
+            addNewPlantStuff =  {
+                    plant: plantName.value,
+                    stuff: stuffName.value,
+                    nextDay: "2024-01-01", //get this value from above code
+                };
+    
+            scheduleList.push(addNewPlantStuff);
+                
+            localStorage.setItem("schedule", JSON.stringify(scheduleList));
+            plantName.value = "";
+            stuffName.value = "";
+            firstDayUse.value = "2024-01-01";
+            daysBeforeNextUse.value = "";
+
+            tip2.textContent = "";
+            tip3.textContent = "";
+
+            } else {
+
+            tip2 = document.createElement('p');
+            tip3 = document.createElement('p');
+            tip2.textContent = "========================"
+            tip3.textContent = "!!! Please, fill all sections in !!!";
+            scheduleForm.append(tip2, tip3);
+
+        };
+
+            //4.2. display Schedule-List of Plant-Stuff Using 
+
+        scheduleList = JSON.parse(localStorage.getItem("schedule"));
+
+        console.log(scheduleList);
+
+        for (let i = 0; i < scheduleList.length; i++) {
+
+            scheduleNote = document.createElement('p');
+        
+            scheduleNote.textContent = "scheduleList[i].nextDay" + " is your next day to applay " + scheduleList[i].stuff + " for " + scheduleList[i].plant;
+        
+            displayForm.appendChild(scheduleNote);
+        };
+
+    });
+
+  
 
 
 
-// save info to Local Storage source: https://www.youtube.com/watch?v=-ZRDZyUjEEI
+// save info to Local Storage source: 
+// https://www.youtube.com/watch?v=-ZRDZyUjEEI
+// https://www.youtube.com/watch?v=U693xrQKFy4&list=LL&index=1&t=1389s
 
