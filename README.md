@@ -53,7 +53,7 @@ https://marynamartseniuk.github.io/Garden-Scheduler-pr01/
       ![WebPage as it looks like](https://github.com/MarynaMartseniuk/Garden-Scheduler-pr01/blob/main/Assets/images/putSchdl.jpg)
 ### Credits
 
-1. This Web-App is processed on and changed version made by Maryna Martseniuk in 2024. The orijinal progect, named Project-1 https://github.com/wol42verine/Project-1 was created by the Team M5: Joe Sandoval, Maryna Martseniuk, Kai Burgess, Olivier Ndicunguye, Shobha Ganesh in  2024. 
+1. This Web-App, named Easy Gardening, is an processed on and a changed version made by Maryna Martseniuk in 2024. The orijinal progect, named Project-1 https://github.com/wol42verine/Project-1 was created by the Team M5: Joe Sandoval, Maryna Martseniuk, Kai Burgess, Olivier Ndicunguye, Shobha Ganesh in  2024. 
 2. This proget used:
 - to write a Readme : https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
 - for the Plant API: https://perenual.com/docs/api
