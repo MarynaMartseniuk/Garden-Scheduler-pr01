@@ -299,11 +299,6 @@ viewNotesButton.addEventListener('click', function (event) {
     var scheduleList = JSON.parse(localStorage.getItem("schedule")) || [];
     var scheduleNote;
 
-    console.log(plantName.value);
-    console.log(stuffName.value);
-    console.log(firstDayUse.value);
-    console.log(daysBeforeNextUse.value);
-
     getNextDayButton.addEventListener('click', function (event) {
         event.preventDefault();
 
@@ -314,15 +309,18 @@ viewNotesButton.addEventListener('click', function (event) {
                 && firstDayUse.value
                 && daysBeforeNextUse.value) {
 
-                    // code for Next Day, use dayjs is going here
+                    // code for Next Day, source https://day.js.org/docs/en/manipulate/add
                     // nextDay = firstday + daysBeforeNextuse;
 
+            console.log(firstDayUse.value);        
 
+            const a = dayjs(firstDayUse.value);
+            const b = a.add(daysBeforeNextUse.value, 'day');
     
             addNewPlantStuff =  {
                     plant: plantName.value,
                     stuff: stuffName.value,
-                    nextDay: "2024-01-01", //get this value from above code
+                    nextDay: b,
                 };
     
             scheduleList.push(addNewPlantStuff);
@@ -355,17 +353,18 @@ viewNotesButton.addEventListener('click', function (event) {
         for (let i = 0; i < scheduleList.length; i++) {
 
             scheduleNote = document.createElement('p');
+
+            console.log(scheduleList[i].nextDay);
+            const c = dayjs(scheduleList[i].nextDay).format('MM / D / YYYY'); 
+            console.log(c);
         
-            scheduleNote.textContent = "scheduleList[i].nextDay" + " is your next day to applay " + scheduleList[i].stuff + " for " + scheduleList[i].plant;
+            scheduleNote.textContent = c + " - is your next day to applay " + scheduleList[i].stuff + " for " + scheduleList[i].plant;
         
             displayForm.appendChild(scheduleNote);
         };
 
     });
-
   
-
-
 
 // save info to Local Storage source: 
 // https://www.youtube.com/watch?v=-ZRDZyUjEEI
