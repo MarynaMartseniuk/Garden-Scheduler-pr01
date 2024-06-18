@@ -1,4 +1,4 @@
-// 1. Plant Details: Plant Modal, plant API and Local Storage / created by Joe Sandoval
+// 1. Plant Details: Plant Modal, plant API and plant Local Storage / created by Joe Sandoval
 
 $(document).foundation();
 
@@ -150,24 +150,26 @@ function displayPlantInfo(plant) {
 }
 
 
+// 2. Weather Forecast: Weather Modal, weather API / created by Maryna Martseniuk
 
-// 2. Weather Forecast: Plant Modal, plant API and Local Storage / created by Maryna Martseniuk
-
+    //input const-var declaration
 const APIKey = "6d91ac03912ea4111a6d0d3486084c05";
 const inputCity = document.querySelector('#cname');
 const submitBtn = document.querySelector('#cnsubmit');
-const wRes = document.querySelector('#weatherRes');
 
 let city;
 
+    //output const-var declaration
+const wRes = document.querySelector('#weatherRes');
+    
     // get location for the Weather request
-
 submitBtn.addEventListener('click', function () {
     city = inputCity.value;
     console.log(city);
 });
 
-    // get info for API request URL
+    // get info (city) for API request URL
+    // source https://stackoverflow.com/questions/814613/how-to-read-get-data-from-a-url-using-javascript (example: const shopId =  new URLSearchParams(window.location.search).get('shop_id');)
 
 const urlParams = new URLSearchParams(window.location.search);
 city = urlParams.get('cname');
@@ -204,7 +206,7 @@ if (city !== null) {
 
 //3. My Gardening Notes with Local Storage / created by Maryna Martseniuk
 
-//input const-var declaretion
+    //input const-var declaretion
 const gardenNoteForm = document.querySelector('#gardenNotesForm');
 const saveNoteButton = document.querySelector('#saveNotesBtn');
 const userNoteTitleInput = document.querySelector('#new-comment-title');
@@ -214,7 +216,7 @@ var MyGardenNotesList = JSON.parse(localStorage.getItem("myGardenNotes")) || [];
 var addNewNote = {};
 var tip ="";
 
-//output const-var declaretion
+    //output const-var declaretion
 const userNotesOutput = document.querySelector('#outputNotes');
 const viewNotesButton = document.querySelector('#viewNotesBtn');
 
@@ -223,39 +225,31 @@ var noteTitle;
 var note;
 var noteList = [];
 
-// console.log(MyGardenNotesList);
-// console.log(addNewNote);
-
-    //3.1. save user Gardening Notes to the Local Storage
+    //3.1. input: save user Gardening Notes to the Local Storage
 saveNoteButton.addEventListener('click', function (event) {
     event.preventDefault();
 
-    // console.log(addNewNote);
-    // console.log(MyGardenNotesList);
+    if (userNoteInput.value && userNoteTitleInput.value) {
 
-        if (userNoteInput.value && userNoteTitleInput.value) {
-
-            addNewNote =  {
-                title: userNoteTitleInput.value,
-                note: userNoteInput.value
-            };
-            console.log(MyGardenNotesList);
-            MyGardenNotesList.push(addNewNote);
-            // console.log(addNewNote);
-            // console.log(MyGardenNotesList);
-            
-            localStorage.setItem("myGardenNotes", JSON.stringify(MyGardenNotesList));
-            userNoteInput.value = "";
-            userNoteTitleInput.value = "";
-            tip.textContent = "";
-            } else {
-            tip = document.createElement('p');
-            tip.textContent = "!!! Please, fill Tilte and Note Content sections in !!!"
-            gardenNoteForm.appendChild(tip);
+        addNewNote =  {
+            title: userNoteTitleInput.value,
+            note: userNoteInput.value
         };
+
+        MyGardenNotesList.push(addNewNote);
+            
+        localStorage.setItem("myGardenNotes", JSON.stringify(MyGardenNotesList));
+        userNoteInput.value = "";
+        userNoteTitleInput.value = "";
+        tip.textContent = "";
+    } else {
+        tip = document.createElement('p');
+        tip.textContent = "!!! Please, fill Tilte and Note Content sections in !!!"
+        gardenNoteForm.appendChild(tip);
+    };
 });
 
-    //3.2. display list of user notes by user reqeust if user click on View My Notes button
+    //3.2. output: display list of user notes by user reqeust if user click on View My Notes button
 viewNotesButton.addEventListener('click', function (event) {
     event.preventDefault();
 
@@ -278,93 +272,82 @@ viewNotesButton.addEventListener('click', function (event) {
 
 //4. Schedule a Plant-Stuff Using / created by Maryna Martseniuk
 
-    // function for "Choose the first day of application" section, a Foundation daypicker
-    //let firstDay;
-
     //input const-var declaretion
-    const plantName = document.querySelector('#label1');
-    const stuffName = document.querySelector('#label2');
-    const firstDayUse = document.querySelector('#dp1');
-    const daysBeforeNextUse = document.querySelector('#label3');
-    const getNextDayButton = document.querySelector('#getNextDayBtn');
-    const scheduleForm = document.querySelector('#getPlantStuffInfo');
+const plantName = document.querySelector('#label1');
+const stuffName = document.querySelector('#label2');
+const firstDayUse = document.querySelector('#dp1');
+const daysBeforeNextUse = document.querySelector('#label3');
+const getNextDayButton = document.querySelector('#getNextDayBtn');
+const scheduleForm = document.querySelector('#getPlantStuffInfo');
 
-    var scheduleList = [];
-    var addNewPlantStuff = {};
-    var tip2 ="";
-    var tip3 ="";
+var scheduleList = [];
+var addNewPlantStuff = {};
+var tip2 ="";
+var tip3 ="";
 
     //output const-var declaretion
-    const displayForm = document.querySelector('#label4');
-    var scheduleList = JSON.parse(localStorage.getItem("schedule")) || [];
-    var scheduleNote;
+const displayForm = document.querySelector('#label4');
+var scheduleList = JSON.parse(localStorage.getItem("schedule")) || [];
+var scheduleNote;
 
-    getNextDayButton.addEventListener('click', function (event) {
-        event.preventDefault();
+getNextDayButton.addEventListener('click', function (event) {
+    event.preventDefault();
 
-            //4.1. save Plant-Stuff Using info to the Local Storage
-    
-        if (plantName.value 
-                && stuffName.value
-                && firstDayUse.value
-                && daysBeforeNextUse.value) {
+    //4.1. input: save Plant-Stuff Using info to the Local Storage
+    if (plantName.value 
+        && stuffName.value
+        && firstDayUse.value
+        && daysBeforeNextUse.value) {
 
-                    // code for Next Day, source https://day.js.org/docs/en/manipulate/add
-                    // nextDay = firstday + daysBeforeNextuse;
+        // code for Next Day, source https://day.js.org/docs/en/manipulate/add
+        // dayjs syntax for (nextDay = firstday + daysBeforeNextuse):
+        const a = dayjs(firstDayUse.value);
+        const b = a.add(daysBeforeNextUse.value, 'day');
 
-            console.log(firstDayUse.value);        
+        addNewPlantStuff =  {
+            plant: plantName.value,
+            stuff: stuffName.value,
+            nextDay: b,
+        };
 
-            const a = dayjs(firstDayUse.value);
-            const b = a.add(daysBeforeNextUse.value, 'day');
-    
-            addNewPlantStuff =  {
-                    plant: plantName.value,
-                    stuff: stuffName.value,
-                    nextDay: b,
-                };
-    
-            scheduleList.push(addNewPlantStuff);
+        scheduleList.push(addNewPlantStuff);
                 
-            localStorage.setItem("schedule", JSON.stringify(scheduleList));
-            plantName.value = "";
-            stuffName.value = "";
-            firstDayUse.value = "2024-01-01";
-            daysBeforeNextUse.value = "";
+        localStorage.setItem("schedule", JSON.stringify(scheduleList));
+        plantName.value = "";
+        stuffName.value = "";
+        firstDayUse.value = "2024-01-01";
+        daysBeforeNextUse.value = "";
 
-            tip2.textContent = "";
-            tip3.textContent = "";
+        tip2.textContent = "";
+        tip3.textContent = "";
 
-            } else {
+    } else {
 
-            tip2 = document.createElement('p');
-            tip3 = document.createElement('p');
-            tip2.textContent = "========================"
-            tip3.textContent = "!!! Please, fill all sections in !!!";
-            scheduleForm.append(tip2, tip3);
+        tip2 = document.createElement('p');
+        tip3 = document.createElement('p');
+        tip2.textContent = "========================"
+        tip3.textContent = "!!! Please, fill all sections in !!!";
+        scheduleForm.append(tip2, tip3);
 
-        };
+    };
 
-            //4.2. display Schedule-List of Plant-Stuff Using 
+    //4.2. output: display Schedule-List of Plant-Stuff Using 
 
-        scheduleList = JSON.parse(localStorage.getItem("schedule"));
+    scheduleList = JSON.parse(localStorage.getItem("schedule"));
 
-        console.log(scheduleList);
+    for (let i = 0; i < scheduleList.length; i++) {
 
-        for (let i = 0; i < scheduleList.length; i++) {
+        scheduleNote = document.createElement('p');
 
-            scheduleNote = document.createElement('p');
-
-            console.log(scheduleList[i].nextDay);
-            const c = dayjs(scheduleList[i].nextDay).format('MM / D / YYYY'); 
-            console.log(c);
+        // get a day user-friendly format to display on the page
+        const c = dayjs(scheduleList[i].nextDay).format('MM / D / YYYY'); 
+            
+        scheduleNote.textContent = c + " - is your next day to applay " + scheduleList[i].stuff + " for " + scheduleList[i].plant;
         
-            scheduleNote.textContent = c + " - is your next day to applay " + scheduleList[i].stuff + " for " + scheduleList[i].plant;
-        
-            displayForm.appendChild(scheduleNote);
-        };
+        displayForm.appendChild(scheduleNote);
+    };
 
-    });
-  
+});
 
 // save info to Local Storage source: 
 // https://www.youtube.com/watch?v=-ZRDZyUjEEI

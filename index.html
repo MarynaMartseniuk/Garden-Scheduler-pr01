@@ -10,6 +10,10 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css"
         crossorigin="anonymous">
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playwrite+NL:wght@100..400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="./Assets/style.css" />
 
@@ -51,7 +55,7 @@
                     </p>
 
                     <div id="weatherRes">
-                        <h3>Results for the weather request:</h3>
+                        <h4> Weather info for Today:</h4>
                         <div>
                         </div>
                     </div>
@@ -67,7 +71,6 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
 
                 <!-- Code for Weather Modal -->
 
@@ -86,14 +89,11 @@
                     </button>
                 </div>
 
-                
-
             </div>
 
         </div> 
 
         <!-- Code for Garden Modal-->
-        <!-- <p><a data-open="plant-modal"> data-open="settings-modal"Click Text</a></p> -->
 
         <div class="reveal" id="plant-modal" data-reveal>
             <h2>Plant Details</h2>
@@ -122,9 +122,9 @@
             </button>
         </div>
 
-    <!-- Code for Gardening Notes-->
+        <!-- Code for Gardening Notes-->
 
-        <div id="notes" class="gardenNotes">
+        <div id="notes">
             <div class="noteInput">
                 <h3>My Gardening Notes</h3>
                 <!--intup for Gardening Notes-->
@@ -134,7 +134,7 @@
                     <p>
                         <button type="button" id="saveNotesBtn" class="button">Save Notes</button>
                     </p>
-                 </div>
+                </div>
             </div>
  
                 <!--output for Gardening Notes-->
@@ -148,53 +148,54 @@
         </div>
 
 
-                <!---->
+        <!--code for Scheduler-->
+
         <div id="scheduler">
             <h3>Schedule a Plant-Stuff Using</h3>
             <!-- source https://get.foundation/sites/docs/forms.html -->
             <div>
                 <div id="getPlantStuffInfo" class="grid-x grid-padding-x">
-                  <div class="small-3 cell">
-                    <label for="label1" class="text-right">Name of the plant</label>
-                  </div>
-                  <div class="small-9 cell">
-                    <input type="text" id="label1" placeholder="for example: Tulip">
-                  </div>
+                    <div class="small-3 cell">
+                        <label for="label1" class="text-right">Name of the plant</label>
+                    </div>
+                    <div class="small-9 cell">
+                        <input type="text" id="label1" placeholder="for example: Tulip">
+                    </div>
 
-                  <div class="small-3 cell">
-                    <label for="label2" class="text-right">Name of the plant-stuff to use</label>
-                  </div>
-                  <div class="small-9 cell">
-                    <input type="text" id="label2" placeholder="for example: Super Food by Healthy Plants Co">
-                  </div>
+                    <div class="small-3 cell">
+                        <label for="label2" class="text-right">Name of the plant-stuff to use</label>
+                    </div>
+                    <div class="small-9 cell">
+                        <input type="text" id="label2" placeholder="for example: Super Food by Healthy Plants Co">
+                    </div>
 
-                  <div class="small-3 cell">
-                    <label for="dp1" class="text-right">Choose the first day of use</label>
-                  </div>
-                  <div class="small-9 cell">
-                     <input type="date" class="span2" id="dp1">
-                  </div>
+                    <div class="small-3 cell">
+                        <label for="dp1" class="text-right">Choose the first day of use</label>
+                    </div>
+                    <div class="small-9 cell">
+                        <input type="date" class="span2" id="dp1">
+                    </div>
 
-                  <div class="small-3 cell">
-                    <label for="label3" class="text-right">Number of days before next use</label>
-                  </div>
-                  <div class="small-9 cell">
-                    <input type="text" id="label3" placeholder="for example: 12">
-                  </div>
+                    <div class="small-3 cell">
+                        <label for="label3" class="text-right">Number of days before next use</label>
+                    </div>
+                    <div class="small-9 cell">
+                        <input type="text" id="label3" placeholder="for example: 12">
+                    </div>
                 </div>
                 
-                  <p>
+                <p>
                     <button type="button" id="getNextDayBtn" class="button">get Next Day of use</button>
-                  </p>
+                </p>
                 
                 <div id="displayPlantStuffInfo" class="grid-x grid-padding-x">
-                  <div class="small-3 cell">
-                    <h6 for="label4" class="text-right">Next Day to use your Plant-Stuff:</h6>
-                  </div>
-                  <div id="label4" class="small-9 cell"></div>
+                    <div class="small-3 cell">
+                        <h6 for="label4" class="text-right">Next Day to use your Plant-Stuff:</h6>
+                    </div>
+                    <div id="label4" class="small-9 cell"></div>
                 </div>
             </div>
-
+        </div>
     </main>
 
     <footer class="garden-footer">
@@ -212,7 +213,6 @@
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"
         crossorigin="anonymous"></script>
     <script src="Assets\javascript.js"></script>
-   
 
 </body>
 
