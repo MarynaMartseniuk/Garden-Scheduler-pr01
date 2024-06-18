@@ -5,10 +5,10 @@
 ### This Web-App is built to help save the time and have everything organazed so plants will get intime care in an easy and smart way.
 
 ### As for now this Web-App can:
-- give an info about plant from the list so you will the size of mature plant; 
+- give an info about plant from the list so you will know the size of mature plant; 
 - give an info about sunlight requirements;
 - give n info about watering;
-- give an info about the Weather as for day of request; 
+- give an info about the Weather as for a day of request; 
 - save any usefull info/tips about your gardening;
 - count next time aplication day for any specific plant and any stuff you will need to use for this plant.
 
