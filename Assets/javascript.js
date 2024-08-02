@@ -255,6 +255,11 @@ viewNotesButton.addEventListener('click', function (event) {
 
     noteList = JSON.parse(localStorage.getItem("myGardenNotes"));
 
+     //source: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_removechild_while
+     while (userNotesOutput.hasChildNodes()) {
+        userNotesOutput.removeChild(userNotesOutput.firstChild);
+      }
+
     for (let i = 0; i < noteList.length; i++) {
 
         noteCard = document.createElement('div');
@@ -280,7 +285,7 @@ const daysBeforeNextUse = document.querySelector('#label3');
 const getNextDayButton = document.querySelector('#getNextDayBtn');
 const scheduleForm = document.querySelector('#getPlantStuffInfo');
 
-var scheduleList = [];
+//var scheduleList = [];
 var addNewPlantStuff = {};
 var tip2 ="";
 var tip3 ="";
@@ -302,6 +307,7 @@ getNextDayButton.addEventListener('click', function (event) {
         // code for Next Day, source https://day.js.org/docs/en/manipulate/add
         // dayjs syntax for (nextDay = firstday + daysBeforeNextuse):
         const a = dayjs(firstDayUse.value);
+        console.log(a);
         const b = a.add(daysBeforeNextUse.value, 'day');
 
         addNewPlantStuff =  {
@@ -309,6 +315,7 @@ getNextDayButton.addEventListener('click', function (event) {
             stuff: stuffName.value,
             nextDay: b,
         };
+        console.log(addNewPlantStuff);
 
         scheduleList.push(addNewPlantStuff);
                 
@@ -334,6 +341,11 @@ getNextDayButton.addEventListener('click', function (event) {
     //4.2. output: display Schedule-List of Plant-Stuff Using 
 
     scheduleList = JSON.parse(localStorage.getItem("schedule"));
+
+    //source: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_removechild_while
+    while (displayForm.hasChildNodes()) {
+        displayForm.removeChild(displayForm.firstChild);
+      }
 
     for (let i = 0; i < scheduleList.length; i++) {
 
